@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tiger94dp.github.io/"/>
-  <updated>2017-03-04T03:52:14.040Z</updated>
+  <updated>2017-03-04T04:21:19.418Z</updated>
   <id>https://tiger94dp.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分类测试文章</title>
+    <link href="https://tiger94dp.github.io/2017/03/04/cate%E6%B5%8B%E8%AF%95/"/>
+    <id>https://tiger94dp.github.io/2017/03/04/cate测试/</id>
+    <published>2017-03-04T04:21:19.417Z</published>
+    <updated>2017-03-04T04:21:19.418Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Testing" scheme="https://tiger94dp.github.io/categories/Testing/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>标签测试文章</title>
+    <link href="https://tiger94dp.github.io/2017/03/04/tags%E6%B5%8B%E8%AF%95/"/>
+    <id>https://tiger94dp.github.io/2017/03/04/tags测试/</id>
+    <published>2017-03-04T04:21:19.332Z</published>
+    <updated>2017-03-04T04:21:19.332Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Testing" scheme="https://tiger94dp.github.io/tags/Testing/"/>
+    
+      <category term="Another Tag" scheme="https://tiger94dp.github.io/tags/Another-Tag/"/>
+    
+  </entry>
   
   <entry>
     <title>Test</title>
