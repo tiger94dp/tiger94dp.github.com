@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tiger94dp.github.io/"/>
-  <updated>2017-03-04T05:31:03.626Z</updated>
+  <updated>2017-03-04T05:14:33.152Z</updated>
   <id>https://tiger94dp.github.io/</id>
   
   <author>
@@ -14,38 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>标签测试文章</title>
-    <link href="https://tiger94dp.github.io/2017/03/04/tags%E6%B5%8B%E8%AF%95/"/>
-    <id>https://tiger94dp.github.io/2017/03/04/tags测试/</id>
-    <published>2017-03-04T05:31:03.625Z</published>
-    <updated>2017-03-04T05:31:03.626Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Testing" scheme="https://tiger94dp.github.io/tags/Testing/"/>
-    
-      <category term="Another Tag" scheme="https://tiger94dp.github.io/tags/Another-Tag/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>search</title>
-    <link href="https://tiger94dp.github.io/2017/03/04/search/"/>
-    <id>https://tiger94dp.github.io/2017/03/04/search/</id>
-    <published>2017-03-04T05:11:37.000Z</published>
-    <updated>2017-03-04T05:31:03.527Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>一世烽火</title>
