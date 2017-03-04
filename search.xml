@@ -4,11 +4,178 @@
   
     
     <entry>
+      <title><![CDATA[使用Hexo搭建个人博客]]></title>
+      <url>https://tiger94dp.github.io/2017/03/04/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<h1 id="使用hexo搭建个人博客"><a href="#使用hexo搭建个人博客" class="headerlink" title="使用hexo搭建个人博客"></a>使用hexo搭建个人博客</h1><p>[TOC]</p>
+<hr>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>官网下载最新版的Node.js，一路安装即可。</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>Windows下要使用很多Linux/Unix的工具时，需要Cygwin这样的模拟环境，Git也一样。Cygwin的安装和配置都比较复杂，就不建议你折腾了。不过，有高人已经把模拟环境和Git都打包好了，名叫msysgit，只需要下载一个单独的exe安装程序，其他什么也不用装，绝对好用。<br>msysgit是Windows版的Git，从<a href="https://git-for-windows.github.io下载，然后按默认选项安装即可。" target="_blank" rel="external">https://git-for-windows.github.io下载，然后按默认选项安装即可。</a></p>
+<h3 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h3><h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p>Github Pages免费的静态站点，其特点：</p>
+<ul>
+<li>免费托管</li>
+<li>自带主题</li>
+<li>支持自制页面</li>
+</ul>
+<p>创建Github Pages比较简单，只要你有一个github账号在创建一个仓库就行了，但是这个仓库是有规则的，其格式必须为：<strong>your-account.github.io</strong>。然后根据提示一直下一步即可，非常简单。</p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo 是一个快速、简洁且高效的博客框架。</p>
+<blockquote>
+<ul>
+<li>超快速度：Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
+<li>支持Markdown：Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</li>
+<li>一键部署：只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。</li>
+<li>丰富的插件：Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</li>
+</ul>
+</blockquote>
+<p>之前所有必备的应用程序安装完成后，即可使用npm安装Hexo。</p>
+<pre><code>$ npm install -g hexo-cli
+</code></pre><h3 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h3><p>玩博客，换主题是必不可少的。Hexo的默认主题是<strong>landscape</strong>。Hexo提供多种风格的<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">主题</a>，可通过以下方式自行下载。我最喜欢的主题是NexT，简单大方，有三种不同的风格。</p>
+<pre><code>$ cd your-hexo-site
+$ git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><h2 id="使用Hexo建站"><a href="#使用Hexo建站" class="headerlink" title="使用Hexo建站"></a>使用Hexo建站</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<pre><code>$ hexo init &lt;folder&gt;
+</code></pre><p>新建完成后，指定文件夹的目录如下：</p>
+<pre><code>.
+├── _config.yml # 网站配置信息
+├── package.json # 应用程序信息
+├── scaffolds # 模板文件夹，Hexo在新建文章时，会根据模板文件夹填充Markdown信息
+├── source # 资源文件夹，除_post和_drafts文件夹之外,其他的文件将会被解析到public文件夹
+|   ├── _drafts # 草稿
+|   └── _posts # 已发布
+└── themes # Hexo会根据主题来生成静态页面
+</code></pre><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>新建一篇文章，文章会被保存到 Your_Project_File/source/_posts/Article_title 。</p>
+<pre><code>$ hexo new [layout] &lt;Article_title&gt;
+</code></pre><p>Hexo 有三种默认布局：post、page 和 draft 。</p>
+<blockquote>
+<p>您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。</p>
+</blockquote>
+<p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：</p>
+<pre><code>$ hexo new [post] &quot;Test&quot;
+</code></pre><p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 post.md，并根据其内容建立文章。</p>
+<blockquote>
+<p>如果文章的标题包含空格，则必须使用<strong>“ ”</strong>。</p>
+</blockquote>
+<pre><code>&lt;post.md&gt;
+---
+title: {{ title }}
+date: {{ date }}
+tags: 
+categories： 
+---
+
+&lt;Test.md&gt;
+layout: &apos;[post]&apos;
+title: Test
+date: 2017-03-04 11:52:13
+tags:
+---
+You can write something here.
+</code></pre><h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>执行如下命令，生成静态页面至 <strong>hexo\public\</strong> 目录。</p>
+<pre><code>hexo generate
+</code></pre><blockquote>
+<p>命令必须在init目录下执行，否则不成功，但是也不报错。</p>
+</blockquote>
+<p>###启动本地服务器</p>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
+<pre><code>$ hexo server
+</code></pre><blockquote>
+<p>若端口被占用，服务器无法启动。需要我们进行重设端口。</p>
+</blockquote>
+<pre><code>$ hexo server -P 5000
+</code></pre><h2 id="使用Next"><a href="#使用Next" class="headerlink" title="使用Next"></a>使用Next</h2><h3 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h3><p> 当安装完成后，打开 <strong>站点配置文件</strong>， 找到 theme 字段，并将其值更改为 next。</p>
+<pre><code>theme: next
+</code></pre><h3 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h3><h4 id="选择Scheme"><a href="#选择Scheme" class="headerlink" title="选择Scheme"></a>选择Scheme</h4><p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme，他们是：</p>
+<ul>
+<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
+<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
+<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+</ul>
+<p>Scheme 的切换通过更改 <strong>主题配置文件</strong>，搜索 scheme 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 # 即可。</p>
+<blockquote>
+<p><strong>主题配置文件为</strong>：Your_Project_File/themes/next/_config.yml</p>
+</blockquote>
+<pre><code>#scheme: Muse
+#scheme: Mist
+scheme: Pisces
+</code></pre><h4 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h4><p>编辑 <strong>站点配置文件</strong>， 将 language 设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下：</p>
+<blockquote>
+<p><strong>站点配置文件为</strong>：Your_Project_File/_config.yml</p>
+</blockquote>
+<pre><code>language: zh-Hans
+</code></pre><h4 id="添加标签和分类页面"><a href="#添加标签和分类页面" class="headerlink" title="添加标签和分类页面"></a>添加标签和分类页面</h4><ol>
+<li><p>在终端窗口下，定位到 Hexo 站点目录下。使用 hexo new page 新建一个页面，命名为 tags ：</p>
+<pre><code>$ cd your-hexo-site
+$ hexo new page tags
+</code></pre></li>
+<li><p>编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：</p>
+<pre><code>title: 标签
+date: 2014-12-22 12:39:04
+type: &quot;tags&quot;
+---
+</code></pre></li>
+<li><p>在菜单中添加链接。编辑 主题配置文件 ， 添加 tags 到 menu 中，如下：</p>
+<pre><code>menu:
+  home: /
+  archives: /archives
+  tags: /tags
+</code></pre></li>
+</ol>
+<h4 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h4><ol>
+<li>注册多说账号，点击我要安装。</li>
+<li>创建站点，填写站点相关信息。多说域名这一栏填写的即是你的 duoshuo_shortname，如图：</li>
+<li>创建站点完成后在<strong>主题配置文件</strong>中新增 duoshuo_shortname 字段，值设置成上一步中的值。</li>
+<li>在<strong>站点配置文件</strong>中正确设置 url 为你站点的域名。</li>
+</ol>
+<h4 id="添加阅读次数统计"><a href="#添加阅读次数统计" class="headerlink" title="添加阅读次数统计"></a>添加阅读次数统计</h4><p>不蒜子可以给任何类型的个人站点使用，如果你是用的Hexo，打开themes/next/layout/_partial/footer.ejs添加以下脚本即可。</p>
+<pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;
+&lt;/script&gt;
+</code></pre><p>只需要复制相应的html标签到 <strong>themes/next/layout/_partial/footer.ejs</strong> 添加即可。可以随意更改不蒜子标签为自己喜欢的显示效果。</p>
+<pre><code>&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;
+    本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次
+&lt;/span&gt;
+</code></pre><h2 id="Enjoy-it"><a href="#Enjoy-it" class="headerlink" title="Enjoy it!"></a>Enjoy it!</h2><ol>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo文档</a></li>
+<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">Hexo的各种主题</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT主题手册</a></li>
+<li><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">使用不蒜子对网页计数 #不如</a></li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 折腾 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> NexT </tag>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 不蒜子 </tag>
+            
+            <tag> 多说 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[一世烽火]]></title>
       <url>https://tiger94dp.github.io/2017/03/02/%E4%B8%80%E4%B8%96%E7%83%BD%E7%81%AB/</url>
       <content type="html"><![CDATA[<p>@风刃<br>骊山山麓。<br>我停了下来。美丽的开始与结束都要在这里了吗？所有曾经的温暖一瞬间涌入脑海，那是多么值得怀念的日子啊。我环视了四周那一张张面目可憎的脸，他们手中紧握的弯刀还在滴血，一个个像是来自地狱的鬼。我仰天长笑，笑了好久，更像是哭了好久，“难道孤王当真命该如此吗？”<br>一把弯刀贯穿我的胸膛，我双手紧扣那人的肩膀，疼痛使我更加用了几分力，“放了她们！”我满口鲜血，恶狠狠地盯着他，此时的我更像一个鬼，当然，我知道，自己马上就是了。终于我再也使不上一丝气力，倒了下去。<br>时光飞速逆转，带我回到那斑斓的时光剪影中，回到一切的开始。<br>那年我十四岁，在父王柩前，在一片哀声恸哭中，成为了大周朝的天子。此后的岁月黯淡苍老，直到她的出现，像一场雨，洗掉空气中的浮尘与躁热。而我的生命似乎也是从那时才真正开始。而我现在多少也明白了，世人的眼中，我是一个昏庸的王，一个无为甚至无道的王。我想说，权术，天下，在记忆中不过半缕残烟，从祖辈承下的江山基业，无异于一把无锁的牢铐，我解不开，也挣不断。舍弃江山与她共走天涯，晨起暮归，忘却半生浮华，染得林间清幽，花间迷醉，但这一切只是幻想罢了，没有了皇位，我什么也不是！<br>那天，我携着她的手，一路欢快，就像一个孩子一样，沿路盛放的花朵都娇羞地闭眼。夕阳下的骊山就是人间最美的天堂，是的，人间也有天堂。到达烽火台，我遥指着远方，对她说：“看，褒姒，这就是孤王的江山。”我转过身，拨了拨她微乱的发髻，凝着她那双明净澄澈的眼眸，不带纷繁尘世的一丝纤尘，那一刻，我想给她永恒的承诺。我握起她的另一只手，对她说：“褒姒，做我的爱妃吧，我们会永远在一起，永远。”她只是静静地看着我，眼眸中微微荡漾起一圈涟漪，就好像秋风微拂的湖面。几只归鸟跃入林中，晚风吹来，我将她拥入怀中，静静地看着夕阳下沉，与她一起。天地间只剩下我们二人。<br>同样，在一个美丽的夜晚，星光璀璨得令人沉醉。我牵着她的手，漫步在王宫的花径小道，落花的氤氲香气似留恋这恢弘浩大的王宫，夜半犹未尽散。褒姒无眠，孤愿相伴。天底下也只有她一个人值得我这么做。她依然静静地走着，时而抬头仰望天空，漫天星辉便倒映在她那一汪澄澈空明的碧水中；时而扭头看着我，四目相对，那一刻，就像是永恒。她的眼睛有一种魔力，世间万物皆不能挣脱，于是我再次沦陷。我们就这么走着，遗忘了时间，黯淡了星光。<br>残月如钩，她已静静地沉睡在我的怀里。月光如水，流淌在她那绝美的容颜上，惹得我都生了几分嫉羡。我凝着她，知道她便是我一生的守望。只是自入宫以来她都不曾笑过，即使在睡梦中她的眉头也微锁，是我的错。“孤王会给你全部的爱，褒妃，相信孤王。”天将晓，我缓缓抱起熟睡中的她，准备送她回寝宫，一路上，我都异常小心，生怕自己一不小心惊醒她，生怕自己脚底的一丝颠簸晃碎了她美丽的梦。我也变得惶恐起来，虽然这不是一个帝王该有的内心。所幸的是，她很安静，一直都那么安静地沉睡在我怀里。<br>早朝。我揉了揉惺忪的睡眼，看了看朝堂下的文武百官，一时更没了精神。<br>“有事起奏，无事退朝。”<br>“陛下，微臣有事起奏。色倾人国，自古有之。夏因妹喜而亡，商因妲己而亡。陛下宜鉴前朝得失……”<br>“住口！”我像一只中箭的野兽，瞪大了猩红的双眼，怒眼盯着朝堂之下进言之人。雷霆之怒，冲彻九霄。“你是不是想说褒妃？听着！今后，胆言褒妃妖孽者，斩！”一字一顿，满朝寂静的如同幽闭千年的墓穴，连活人的呼吸都没有了。<br>一个月之后，一颗血淋淋的人头喷洒着对周王朝的怨怒与绝望，跌落在午门。我杀了那个进言的人，因为他的记性貌似不太好，忘了我所说的话。<br>满月光华，温柔地映照着大周王朝的万里河山。我张开双臂，在清风中抬头闭眼，享受着月光的宁静与欢歌笙舞的喧嚣，这一刻，我高高在上，似真的感受到一个帝王应有的尊贵和神圣，是啊，周天子也有很多孤苦无奈。我猛地睁眼，抓起桌上的青铜酒樽，半壶玉液琼浆洒落在玉阶之上，溅起满地珠华，点点如璀璨星光。“众卿与孤同醉。”不知过了多久，当喧闹化作寂静，我醉眼朦胧，枕在褒妃的腿上，望着天上的明月，“吴刚伐桂，玉兔捣药，嫦娥奔月，只愿我们不要如此，褒妃。”模糊中我隐约听到一声“嗯”，便笑着醉晕。<br>这夜夜笙歌，惊扰了多少寻常百姓的一方清梦啊！<br>镐京城好久没有下过这么大的雪了。<br>我伸出手，接过一片雪花，痴痴地看它在掌心攸地化为冰水，褒妃，多少年了，冰冷如玉，艳寒似雪，我多想看你嫣然一笑，就像来年春天的花，只为我一人绽放。<br>我爱惜地拂去满肩碎玉，转身回向寝宫。<br>门缓缓地闭合，将漫天风雪挡在屋外。<br>“传孤王旨意，如有人献计可使褒妃一笑者，赏黄金千两。”<br> “诺。”<br>镐京城在茫茫的风雪中静静燃起了万家灯火，静谧祥和，却又有一丝诡异，仿佛死神温柔的一笑，谁能预料到明晚哪家百姓的灯火会不会照常点亮？为得褒姒一笑，天下百姓再也难笑得起来了。<br>骊山。再次登上骊山，我想起多年前的那一幕，我说过的话，我许下的诺，还有她秋水般宛转的眼眸，以及夕阳下映红的脸庞。<br>三千烽火，一瞬燃起。<br>褒妃，愿这三千烽火与你一同绽放。<br>暮色四合，那黛青色的远山好似再也扛不住沉重的眼皮，下一秒便将睡去。<br>歌舞四起，今夜的骊山却完全不会有困意。连天上星也埋进了云里，断然不与这人间的烽火相争。烽火与笙歌，一个属于战场，血一般的壮烈，一个属于宫廷，水一般的缠绵，两者在此交错，在这苍茫的夜色，在这雄奇的高台。<br>她，一抹艳丽的红袍加身，朱唇轻启，抿了一口飘渺的佳酿，是啊，一切都那么飘渺，宛在梦中。<br>杯中酒微微荡漾，马蹄声由远及近踏碎这曲宛转悠扬，火光若隐若现，绵延八百里，映红了黑夜里每个人幽深的眼瞳。扬手间，歌歇舞停，再睁眼，各方诸侯齐聚城下，数万兵士整装肃立。宝剑未出已觉寒，天子一言心先亡。<br>骗局！原只是一场骗局。我不知道各诸侯听到我说“各位一路辛苦，实物敌人来犯，诸君请回”后是怎样的心情，一片骚动中，我听到在旁褒妃的笑声，笑靥如花，最终绽放。她终于笑了，那么美，那么醉人，如同三月杨柳湖畔的莺啼，那一刻，我就像杨柳湖畔的柳枝，醉倒在春风里，清醒在鸟鸣里，是醒是醉，我也分不清。褒妃，就算为你负了天下，我也愿意。<br>当我看着在晨曦中扬起的漫天烟尘直冲云霄时，我满意地笑了。游戏人生，江山再美也敌不过美人倾城一笑。今生红颜，才是我心中最美。红颜祸水，我不信，我只想倾尽毕生，来洗净她那深眸中暗藏的忧伤。浮生如若只是场梦，那就让我做完这个梦吧，是劫是缘，我不管，是福是祸，由它去，我只想做此时的自己，不受羁绊，畅快自得。<br>今早凝下的露珠在马蹄的惊扰下裹挟着一层烟土滴落。<br>此后的短短岁月里，烽火数举，只为她倾城笑。<br>然而，居然会有这么一天在等着我。当骊山的烽火更加猛烈地焚烧时，再也没有人赶来，再也没有人愿意被践踏着尊严，千里奔袭，来扮演一个可悲的小丑，要知道，频繁地戏弄一只猴子，自己也有可能被挠伤的。何况他们都是名震一方的诸侯，说起来，有时比那猴子精明百倍不止。<br>只是，这次敌人真的来了。<br>当犬戎的弯刀明晃晃闪耀在王宫，当漫天的哭嚎凄厉地穿透黑夜，我首先想到的是她和伯服。万幸的是，我找到了他们。我左手拉着伯服，右手紧紧攥着她的手，一路狂奔，刀戟碰撞之声，声声刺痛着我的耳膜，早已习惯了宫廷之乐的耳怎么能够承受这些。保护我们的护卫相继倒在了血泊中。<br>而今，同样身在血泊中的我，看着褒妃那绝望悲伤的脸，我是多么想再见到那倾国的一笑啊，可是现在我连喊出她名字的力气也没有了，泪从我眼角滑下，我缓缓地闭上了眼。褒妃，错在我，但我无悔，若有来世，愿与你再相遇。</p>
 ]]></content>
       
+        <categories>
+            
+            <category> 风刃 </category>
+            
+        </categories>
+        
         
         <tags>
             
