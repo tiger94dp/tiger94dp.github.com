@@ -4,6 +4,126 @@
   
     
     <entry>
+      <title><![CDATA[Git入门]]></title>
+      <url>https://tiger94dp.github.io/2017/03/10/Git%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<p>Git是目前世界上最先进的分布式版本控制系统。</p>
+<a id="more"></a>
+<h1 id="Git-的基本用法"><a href="#Git-的基本用法" class="headerlink" title="Git 的基本用法"></a>Git 的基本用法</h1><p>初始化Git仓库：</p>
+<pre><code>git init
+</code></pre><p>添加文件到Git仓库：</p>
+<pre><code>git add &lt;file&gt; # 生成一个版本
+git commit -m &quot;comments&quot;
+</code></pre><p>查看Git仓库的状态：</p>
+<pre><code>git status
+</code></pre><p>查看文件的改动：</p>
+<pre><code>git diff &lt;file&gt;
+</code></pre><p>查看提交日志，命令显示从最近到最远的提交：</p>
+<pre><code>git log (--pretty=online)
+</code></pre><p>最新提交的版本：</p>
+<pre><code>HEAD
+</code></pre><p>上一个版本：</p>
+<pre><code>HEAD^
+</code></pre><p>上100个版本：</p>
+<pre><code>HEAD~100
+</code></pre><p>在历史版本之间穿梭：</p>
+<pre><code>git reset --hard commit_id
+</code></pre><p>Git记录我的每一次命令，方便我们回退到未来的版本：</p>
+<pre><code>git reflog
+</code></pre><p>撤回全部的修改：</p>
+<pre><code>git checkout -- file # 撤回到最近一次的add和commit的状态
+</code></pre><p>撤回暂存区的修改：</p>
+<pre><code>git reset HEAD file # 撤回到最新的版本
+</code></pre><p>删除文件：</p>
+<pre><code># 1
+git rm file
+git commit -m &quot;delete file&quot;
+# 2
+git checkout -- file
+</code></pre><h1 id="远程仓库："><a href="#远程仓库：" class="headerlink" title="远程仓库："></a>远程仓库：</h1><p>添加远程仓库：</p>
+<pre><code># origin 为远程仓库
+git remote add origin git@github.com:***/***.git
+</code></pre><p>将本地内容推送到远程仓库：</p>
+<pre><code># 第一次推送加 -u 参数，将本地 master 分支和远程 master 分支关联
+git push -u origin master
+# 推送
+git push origin master
+</code></pre><p>将远程库克隆到本地：</p>
+<pre><code>git clone git@github.com:***/***.git
+</code></pre><h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><blockquote>
+<p>HEAD 表示当前分支，我在这个分支上工作，修改和提交都在 HEAD 分支上<br>master 表示最新的提交，所有的工作都要合并到 master</p>
+</blockquote>
+<p>创建dev分支，并切换到dev分支：</p>
+<pre><code># 1
+git checkout -b dev # -b 参数表示切换
+# 2
+git branch dev # 在此分支上 add 和 commit 都是提交到dev
+git checkout dev # 
+</code></pre><p>查看当前分支：</p>
+<pre><code>git branch 
+</code></pre><p>切换分支：</p>
+<pre><code>git checkout master
+</code></pre><p>将指定分支合并到 master：</p>
+<pre><code>git merge dev
+# Fast-forward 快速合并，直接将 master 指向 dev
+</code></pre><p>合并完成后，删除分支：</p>
+<pre><code>git branch -d dev
+</code></pre><p>解决冲突：</p>
+<pre><code># 提示 merge conflict，使用 git status 查看，并手动解决冲突
+git commit -m &quot;conflict fixed&quot;
+
+
+# Git 尝试合并，并在文件中标出冲突
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Creating a new branch is quick &amp; simple.
+=======
+Creating a new branch is quick AND simple.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1
+</code></pre><p>查看分支合并情况：</p>
+<pre><code>git log --graph --pretty=online --abbrev-commit
+</code></pre><p>&gt;</p>
+<ul>
+<li>59bc1cb conflict fixed<br>|\<br>| * 75a857c AND simple</li>
+<li>| 400b400 &amp; simple<br>|/</li>
+<li>fec145a branch test</li>
+</ul>
+<p>不使用 Fast-forward 模式进行合并:</p>
+<pre><code># --no-ff 使用普通模式进行合并，会产生合并的版本
+git merge --no-ff -m &quot;commits&quot; dev
+</code></pre><p><strong>实际开发中的分支策略</strong></p>
+<p>master： 稳定版本，不在 master 上进行开发<br>dev： 开发版本，当稳定时，将其合并到稳定的 master 上<br>个人分支：每个开发人员都创建自己的分支，不断的提交到 dev 上<br>Bug分支：创建新的分支修复bug<br>Feature分支：用于开发新的功能</p>
+<p>若手头工作未完成，但是要开辟新的分支：</p>
+<pre><code>git stash # 保存工作现场，此时工作区是空的
+git stash pop # 恢复工作现场
+</code></pre><p>分支未合并，则需要强制删除</p>
+<pre><code># -D 表示强制删除
+git branch -D feature
+</code></pre><p>查看远程库信息：</p>
+<pre><code># 1
+git remote
+# 2 查看详细信息（fetch抓取，push推送）
+git remote -v 
+</code></pre><p><strong>GitHub:</strong></p>
+<p>fork 别人的仓库到自己的仓库<br>pull 提交自己的修改</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[驴友出行准备清单]]></title>
       <url>https://tiger94dp.github.io/2017/03/10/%E9%A9%B4%E5%8F%8B%E5%87%BA%E8%A1%8C%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95/</url>
       <content type="html"><![CDATA[<p>每次旅行之前，都是最慌忙的，希望这份清单，让你在旅行之前从容不迫</p>
@@ -308,11 +428,11 @@ type: &quot;tags&quot;
         
         <tags>
             
+            <tag> GitHub </tag>
+            
             <tag> Hexo </tag>
             
             <tag> NexT </tag>
-            
-            <tag> GitHub </tag>
             
             <tag> 不蒜子 </tag>
             
