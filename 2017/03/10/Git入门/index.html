@@ -95,7 +95,7 @@
 <meta property="og:url" content="https://tiger94dp.github.io/2017/03/10/Git入门/index.html">
 <meta property="og:site_name" content="Tiger94dp">
 <meta property="og:description" content="Git是目前世界上最先进的分布式版本控制系统。">
-<meta property="og:updated_time" content="2017-03-10T10:44:26.752Z">
+<meta property="og:updated_time" content="2017-03-10T10:46:35.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git入门">
 <meta name="twitter:description" content="Git是目前世界上最先进的分布式版本控制系统。">
@@ -466,14 +466,16 @@ Creating a new branch is quick &amp; simple.
 Creating a new branch is quick AND simple.
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1
 </code></pre><p>查看分支合并情况：</p>
-<pre><code>git log --graph --pretty=online --abbrev-commit
-</code></pre><p>&gt;</p>
-<ul>
-<li>59bc1cb conflict fixed<br>|\<br>| * 75a857c AND simple</li>
-<li>| 400b400 &amp; simple<br>|/</li>
-<li>fec145a branch test</li>
-</ul>
-<p>不使用 Fast-forward 模式进行合并:</p>
+<pre><code> git log --graph --pretty=online --abbrev-commit
+
+
+- 59bc1cb conflict fixed
+|\
+| * 75a857c AND simple
+- | 400b400 &amp; simple
+|/
+- fec145a branch test
+</code></pre><p>不使用 Fast-forward 模式进行合并:</p>
 <pre><code># --no-ff 使用普通模式进行合并，会产生合并的版本
 git merge --no-ff -m &quot;commits&quot; dev
 </code></pre><p><strong>实际开发中的分支策略</strong></p>
