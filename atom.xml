@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tiger94dp.github.io/"/>
-  <updated>2017-03-10T08:10:28.930Z</updated>
+  <updated>2017-03-10T08:14:05.234Z</updated>
   <id>https://tiger94dp.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>我的出行准备清单</title>
+    <title>驴友出行准备清单</title>
     <link href="https://tiger94dp.github.io/2017/03/10/%E9%A9%B4%E5%8F%8B%E5%87%BA%E8%A1%8C%E5%87%86%E5%A4%87%E6%B8%85%E5%8D%95/"/>
     <id>https://tiger94dp.github.io/2017/03/10/驴友出行准备清单/</id>
     <published>2017-03-10T07:53:33.000Z</published>
-    <updated>2017-03-10T08:10:28.930Z</updated>
+    <updated>2017-03-10T08:14:05.234Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-出行前准备"><a href="#1-出行前准备" class="headerlink" title="1.出行前准备"></a>1.出行前准备</h2><ul>
 <li>[ ] 购买旅游保险<br>[ ] 购买机票<br>[ ] 预定酒店<h3 id="1-1重要文件备份（扫描件／拍照）"><a href="#1-1重要文件备份（扫描件／拍照）" class="headerlink" title="1.1重要文件备份（扫描件／拍照）"></a>1.1重要文件备份（扫描件／拍照）</h3></li>
@@ -47,7 +47,9 @@
       <category term="清单" scheme="https://tiger94dp.github.io/categories/%E6%B8%85%E5%8D%95/"/>
     
     
-      <category term="驴友，清单" scheme="https://tiger94dp.github.io/tags/%E9%A9%B4%E5%8F%8B%EF%BC%8C%E6%B8%85%E5%8D%95/"/>
+      <category term="驴友" scheme="https://tiger94dp.github.io/tags/%E9%A9%B4%E5%8F%8B/"/>
+    
+      <category term="清单" scheme="https://tiger94dp.github.io/tags/%E6%B8%85%E5%8D%95/"/>
     
   </entry>
   
