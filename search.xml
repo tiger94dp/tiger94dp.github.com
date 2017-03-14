@@ -294,9 +294,9 @@ git remote -v
         
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Git </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
         
@@ -607,11 +607,11 @@ type: &quot;tags&quot;
         
         <tags>
             
+            <tag> GitHub </tag>
+            
             <tag> Hexo </tag>
             
             <tag> NexT </tag>
-            
-            <tag> GitHub </tag>
             
             <tag> 不蒜子 </tag>
             
